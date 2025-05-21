@@ -1,0 +1,30 @@
+- route:
+    id: route-a1f4
+    from:
+      id: from-c7c9
+      uri: cxf
+      parameters:
+        dataFormat: RAW
+      steps:
+        - log:
+            id: log-8e29
+            message: "Received message: ${body}"
+        - unmarshal:
+            id: unmarshal-b805
+            jaxb:
+              id: jaxb-3ee2
+              contextPath: com.example.soap
+        - marshal:
+            id: marshal-7e90
+            json:
+              id: json-142b
+              library: Jackson
+        - to:
+            id: to-48ff
+            uri: pulsar
+            parameters:
+              serviceUrl: pulsar://host.docker.internal:6650
+              persistence: persistent
+              tenant: public
+              namespace: default
+              topic: my-topic

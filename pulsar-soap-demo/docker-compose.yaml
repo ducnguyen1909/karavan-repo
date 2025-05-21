@@ -1,0 +1,8 @@
+services:
+  pulsar-soap-demo:
+    image: pulsar-soap-demo
+    restart: always
+    ports:
+      - "9090:8080"
+    networks:
+      - karavan
