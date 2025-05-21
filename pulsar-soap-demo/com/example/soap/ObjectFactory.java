@@ -1,4 +1,4 @@
-package com.example.soapmodel;
+package com.example.soap;
 
 import jakarta.xml.bind.annotation.XmlRegistry;
 
